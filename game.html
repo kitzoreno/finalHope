@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <title>Dino</title>
+</head>
+<body>
+    <canvas id="gameCanvas" width="400px" height="400px"></canvas>
+    <script>
+        var canvas , canvasContext;
+
+        window.onload = function (){
+            canvas = document.getElementById("gameCanvas");
+            canvasContext = canvas.getContext("2d");
+
+            setInterval(mainloop, 50/1000);
+        }
+
+        var Mr = new Image();
+        Mr.src = 'images/Mr.png';
+
+       
+
+        var playerXpos = 0;
+        var playerYpos = 0;
+        var playerWidth = 20;
+        var playerHeight = 30;
+
+        function mainloop(){
+            colorRect(0,0,canvas.width,canvas.height,'black');
+            colorRect(playerXpos,playerYpos,playerWidth,playerHeight,'red'); // player
+        }
+
+        function colorRect(x,y,w,h,c){
+            canvasContext.fillStyle = c;
+            canvasContext.fillRect(x,y,w,h);
+        }
+
+        function drawImg(src,x,y,w,h){
+            canvasContext.drawImage(src,x,y,w,h);
+
+        }
+    </script>
+</body>
